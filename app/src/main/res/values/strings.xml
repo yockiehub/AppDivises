@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">AppDivises</string>
     <string name="initVal">0</string>
-    <string name="moneyValTextView"> Amount: </string>
+    <string name="euroTextView"> Euros: </string>
+    <string name="dollarTextView"> Dollars: </string>
     <string name="changeValTextView"> Change: </string>
     <string name="taxValTextView"> Tax: </string>
     <string name="EurToDol">Euro/Dollar</string>

@@ -11,20 +11,55 @@
     tools:context="edu.ub.pis2016.palmecro.appdivises.MainActivity">
 
     <LinearLayout
-        android:id="@+id/moneyValLayout"
-        android:layout_width="wrap_content"
+        android:id="@+id/amountsLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/moneyValTextView"/>
-        <EditText
-            android:id="@+id/amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="@string/initVal" />
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/euroValLayout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:text="@string/euroTextView"
+                android:id="@+id/textView" />
+
+            <EditText
+                android:id="@+id/euros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="30sp"
+                android:hint="@string/initVal"
+                android:selectAllOnFocus="true"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dollarValLayout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:text="@string/dollarTextView"/>
+            <EditText
+                android:id="@+id/dollars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="30sp"
+                android:hint="@string/initVal"
+                android:selectAllOnFocus="true"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -32,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/moneyValLayout">
+        android:layout_below="@id/amountsLayout">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +77,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="@string/initVal" />
+            android:hint="@string/initVal"
+            android:selectAllOnFocus="true"/>
     </LinearLayout>
 
     <LinearLayout
@@ -60,29 +96,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="@string/initVal" />
+            android:hint="@string/initVal"
+            android:selectAllOnFocus="true"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/taxValLayout">
+        android:layout_below="@+id/taxValLayout"
+        android:layout_centerHorizontal="true">
         <Button
             android:id="@+id/eurToDol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/amount"
             android:text="@string/EurToDol"/>
         <Button
             android:id="@+id/dolToEur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/amount"
-            android:text="@string/EurToDol"/>
+            android:text="@string/DolToEur"/>
     </LinearLayout>
-
 
 
 </RelativeLayout>
