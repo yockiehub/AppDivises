@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">AppDivises</string>
     <string name="initVal">0</string>
-    <string name="euroTextView"> Euros: </string>
-    <string name="dollarTextView"> Dollars: </string>
-    <string name="changeValTextView"> Change: </string>
-    <string name="taxValTextView"> Tax: </string>
+    <string name="euroTextView"> EUR: </string>
+    <string name="dollarTextView"> USD: </string>
+    <string name="changeValTextView"> Change Rate: </string>
+    <string name="taxValTextView"> Tax (%): </string>
     <string name="EurToDol">Euro/Dollar</string>
     <string name="DolToEur">Dollar/Euro</string>
+    <string name="dollar">#$</string>
+    <string name="euro">\u20ac</string>
 </resources>

@@ -130,8 +130,7 @@ public class MainActivity extends AppCompatActivity {
             if (!tax.getText().toString().isEmpty()){
                 double taxRate = Double.parseDouble(tax.getText().toString());
                 val = val - (taxRate/100 * val);
-            }
-            //str = String.valueOf(val);
+        }
             str = String.format("%.2f", val);
             currencyOut.setText(str);
         }else if (currencyIn.getText().toString().isEmpty()){
