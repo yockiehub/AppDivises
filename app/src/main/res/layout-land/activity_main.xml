@@ -105,21 +105,29 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/buttonLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/taxValLayout"
-        android:layout_centerHorizontal="true">
-        <Button
-            android:id="@+id/eurToDol"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/taxValLayout">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/EurToDol"/>
-        <Button
-            android:id="@+id/dolToEur"
+            android:text="@string/convType"/>
+
+        <ToggleButton
+            android:id="@+id/toggleConv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/DolToEur"/>
+            android:textOff="@string/EurToDol"
+            android:textOn="@string/DolToEur"
+            android:checked="false" />
+        <Button
+            android:id="@+id/convert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/convert"/>
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -6,18 +6,23 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText eurosEt;
     private EditText dollarsEt;
-    private EditText changeEd;
+    private EditText changeEt;
     private EditText taxEt;
 
     private Button eurToDolButton;
     private Button dolToEurButton;
+    private Button convertButton;
+
+    private ToggleButton toggleConv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +31,65 @@ public class MainActivity extends AppCompatActivity {
 
         eurosEt = (EditText)findViewById(R.id.euros);
         dollarsEt = (EditText)findViewById(R.id.dollars);
-        changeEd = (EditText)findViewById(R.id.change);
+        changeEt = (EditText)findViewById(R.id.change);
         taxEt = (EditText)findViewById(R.id.tax);
 
         eurToDolButton = (Button)findViewById(R.id.eurToDol);
         dolToEurButton = (Button)findViewById(R.id.dolToEur);
+        convertButton = (Button)findViewById(R.id.convert);
+
+        toggleConv = (ToggleButton)findViewById(R.id.toggleConv);
+
+        if (toggleConv != null){
+
+            eurosEt.setEnabled(true);
+            dollarsEt.setEnabled(false);
+            eurosEt.requestFocus();
+
+            toggleConv.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked){
+                        eurosEt.setEnabled(false);
+                        dollarsEt.setEnabled(true);
+                        dollarsEt.requestFocus();
+                    }else{
+                        eurosEt.setEnabled(true);
+                        dollarsEt.setEnabled(false);
+                        eurosEt.requestFocus();
+                    }
+                }
+            });
+
+            convertButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (toggleConv.isChecked()){
+                        buttonClick(dollarsEt, eurosEt, taxEt, changeEt);
+                    }else{
+                        buttonClick(eurosEt, dollarsEt, taxEt, changeEt);
+                    }
+                }
+            });
+
+
+        }else{
+            eurToDolButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttonClick(eurosEt, dollarsEt, taxEt, changeEt);
+                }
+            });
+
+            dolToEurButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    buttonClick(dollarsEt, eurosEt, taxEt, changeEt);
+                }
+            });
+        }
+
+
 
         eurosEt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -46,12 +105,7 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
-        eurToDolButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonClick(eurosEt, dollarsEt, taxEt, changeEd);
-            }
-        });
+
         dollarsEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -67,12 +121,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        dolToEurButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonClick(dollarsEt, eurosEt, taxEt, changeEd);
-            }
-        });
+
 
         taxEt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -89,20 +138,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        changeEd.addTextChangedListener(new TextWatcher() {
+        changeEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                textChange(s, changeEd);
+                textChange(s, changeEt);
             }
 
             @Override
             public void afterTextChanged(Editable s) {
             }
         });
+
+
     }
 
 /**

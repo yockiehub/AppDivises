@@ -7,6 +7,8 @@
     <string name="taxValTextView"> Tax (%): </string>
     <string name="EurToDol">Euro/Dollar</string>
     <string name="DolToEur">Dollar/Euro</string>
-    <string name="dollar">#$</string>
-    <string name="euro">\u20ac</string>
+    <string name="dollar">DOLLAR</string>
+    <string name="euro">EURO</string>
+    <string name="convType">Select conversion </string>
+    <string name="convert">Convert</string>
 </resources>
