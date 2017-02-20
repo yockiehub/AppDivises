@@ -38,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
         dolToEurButton = (Button)findViewById(R.id.dolToEur);
         convertButton = (Button)findViewById(R.id.convert);
 
+        /**
+         * Based on the orientation of the device, the app will work one way or another.
+         * In portrait, a two-buttons layout will be loaded allowing the user to perform
+         * the exchange both ways.
+         * In landscape, the layout shows a toggle button to perform the currency exchange
+         * in only the direction selected.
+         */
         toggleConv = (ToggleButton)findViewById(R.id.toggleConv);
 
         if (toggleConv != null){
@@ -89,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-
-
         eurosEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -121,8 +126,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         taxEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -152,14 +155,17 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
-
-
     }
 
 /**
  * Encapsulation of common methods
  */
-
+    /**
+     * Method to make sure the input within the edit texts is correct
+     *
+     * @param s Sequence of characters being written in the edti text
+     * @param eT The edit text selected
+     */
     private void textChange(CharSequence s, EditText eT){
         if (s.toString().equals(".")){
             eT.setText("0.");
@@ -172,6 +178,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method to calculate the final conversion value after applying the different rates and taxes
+     * (optional).
+     *
+     * @param currencyIn Edit text being edited to convert from
+     * @param currencyOut Edit text where the output of the conversion will be added to
+     * @param tax Tax rate
+     * @param change Change rate
+     */
     private void buttonClick(EditText currencyIn, EditText currencyOut, EditText tax, EditText change){
         double val;
         String str;
